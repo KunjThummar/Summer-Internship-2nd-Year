@@ -10,7 +10,7 @@ async function register(req, res) {
             role,
             profileImage
         } = req.body
-        console.log("inside register")
+        
         if (!name || !email || !password) {
             return res.status(400).json({ error: "Name, email and password are required" })
         }

@@ -10,9 +10,8 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    passsword: {
+    password: {
         type: String,
-        enum: ['admin', 'employee'],
         required: true
     },
     profileImage: {
