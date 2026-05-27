@@ -1,4 +1,4 @@
-const { User } = require('./models/userSchema')
+const { User } = require('../models/userSchema')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const JWT_SECRET = process.env.JWT_SECRET || 'secret'
@@ -46,5 +46,6 @@ async function login(req, res) {
     }
 }
 
+module.exports = {login}
 
 
