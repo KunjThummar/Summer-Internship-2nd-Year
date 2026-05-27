@@ -2,11 +2,11 @@ const jwt = require('jsonwebtoken');
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-function authMiddleware(req , res , next){
+function authMiddleware(req, res, next) {
     const authHeader = req.headers.authorization;
-    if(!authHeader){
+    if (!authHeader) {
         return res.status(401).json({
-            error : "Token missing"
+            error: "Token missing"
         })
     }
 
@@ -24,7 +24,7 @@ function authMiddleware(req , res , next){
         return res.status(401).json({ error: "Invalid or expired token" });
     }
 
-    next();
+
 }
 
-module.exports = {authMiddleware}
+module.exports = { authMiddleware }

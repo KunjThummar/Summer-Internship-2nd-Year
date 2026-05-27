@@ -26,7 +26,8 @@ async function login(req, res) {
             return res.status(400).json({ error: "Email or password is incorrect" });
         }
 
-        const isPasswordValid = await bcrypt.compare(password, user.password)
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        
         if (!isPasswordValid) {
             return res.status(400).json({ error: "Email or password is incorrect" });
         }
@@ -35,7 +36,7 @@ async function login(req, res) {
 
         return res.status(200).json({
             msg: "Login succesful",
-            userId : user._id,
+            userId: user._id,
             jwt: jwtToken
         })
     } catch (error) {
