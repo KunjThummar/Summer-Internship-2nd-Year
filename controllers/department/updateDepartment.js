@@ -1,4 +1,4 @@
-const {Department} = require('../models/departmentSchema');
+const {Department} = require('../../models/departmentSchema');
 
 async function updateDepartment(req , res){
     try {
@@ -20,3 +20,5 @@ async function updateDepartment(req , res){
         return res.status(500).json({error : error.message})
     }
 }
+
+module.exports = { updateDepartment };

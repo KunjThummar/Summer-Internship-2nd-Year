@@ -1,7 +1,7 @@
-const { Department } = require('../models/departmentSchema')
+const { Department } = require('../../models/departmentSchema')
 
 
-async function fetchDepartments(req, res) {
+async function fetchDepartment(req, res) {
     try {
         const departments = await Department.find();
         return res.status(200).json({ departments });
@@ -10,4 +10,4 @@ async function fetchDepartments(req, res) {
     }
 }
 
-module.exports = { fetchDepartments };
+module.exports = { fetchDepartment };

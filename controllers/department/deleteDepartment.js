@@ -1,4 +1,4 @@
-const {Department} = require('../models/departmentSchema');
+const {Department} = require('../../models/departmentSchema');
 
 async function deleteDepartment(req , res){
     try {
@@ -14,3 +14,5 @@ async function deleteDepartment(req , res){
         return res.status(500).json({error : error.message})
     }
 }
+
+module.exports = { deleteDepartment };
