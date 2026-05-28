@@ -22,13 +22,11 @@ router.delete('/deletedepartment/:id',authMiddleware , checkAdmin, deleteDepartm
 
 //employee routes
 
-const { addEmployee } = require('../controllers/employee/addEmployee')
-const { fetchEmployee } = require('../controllers/employee/fetchEmployee')
+
 const { updateEmployee } = require('../controllers/employee/updateEmployee')
 const { deleteEmployee } = require('../controllers/employee/deleteEmployee')
 
-router.get('/fetchemployee', authMiddleware ,fetchEmployee)
-router.post('/addemployee', authMiddleware , checkAdmin, addEmployee)
+
 router.put('/updateemployee/:id',authMiddleware , checkAdmin,updateEmployee)
 router.delete('/deleteemployee/:id',authMiddleware , checkAdmin, deleteEmployee)
 

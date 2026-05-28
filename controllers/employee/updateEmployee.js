@@ -1,4 +1,4 @@
-const { User } = require('../models/userSchema');
+const { User } = require('../../models/userSchema');
 const bcrypt = require('bcrypt');
 
 async function updateEmployee(req, res) {
