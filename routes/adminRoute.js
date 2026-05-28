@@ -15,9 +15,9 @@ const { updateDepartment } = require('../controllers/department/updateDepartment
 const { deleteDepartment } = require('../controllers/department/deleteDepartment')
 
 
-router.get('/fetchdepartment', fetchDepartment)
-router.post('/adddepartment', checkAdmin, addDepartment)
-router.put('/updatedepartment/:id', checkAdmin,updateDepartment)
-router.delete('/deletedepartment/:id', checkAdmin, deleteDepartment)
+router.get('/fetchdepartment', authMiddleware ,fetchDepartment)
+router.post('/adddepartment', authMiddleware , checkAdmin, addDepartment)
+router.put('/updatedepartment/:id',authMiddleware , checkAdmin,updateDepartment)
+router.delete('/deletedepartment/:id',authMiddleware , checkAdmin, deleteDepartment)
 
 module.exports = router;

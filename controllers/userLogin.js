@@ -1,7 +1,8 @@
 const { User } = require('../models/userSchema')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-const JWT_SECRET = process.env.JWT_SECRET || 'secret'
+require('dotenv').config();
+const JWT_SECRET = process.env.JWT_SECRET;
 
 
 function issueAuthToken(user) {
