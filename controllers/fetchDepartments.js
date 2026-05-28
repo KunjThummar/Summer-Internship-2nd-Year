@@ -1,4 +1,3 @@
-const { User } = require('../models/userSchema')
 const { Department } = require('../models/departmentSchema')
 
 
