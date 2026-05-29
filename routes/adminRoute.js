@@ -21,12 +21,13 @@ router.put('/updatedepartment/:id',authMiddleware , checkAdmin,updateDepartment)
 router.delete('/deletedepartment/:id',authMiddleware , checkAdmin, deleteDepartment)
 
 //employee routes
-
-
+const { addEmployee } = require('../controllers/employee/addEmployee')
+const { fetchEmployees } = require('../controllers/employee/fetchEmployees')
 const { updateEmployee } = require('../controllers/employee/updateEmployee')
 const { deleteEmployee } = require('../controllers/employee/deleteEmployee')
 
-
+router.post('/addemployee', authMiddleware , checkAdmin, addEmployee)
+router.get('/fetchemployees', authMiddleware ,fetchEmployees)
 router.put('/updateemployee/:id',authMiddleware , checkAdmin,updateEmployee)
 router.delete('/deleteemployee/:id',authMiddleware , checkAdmin, deleteEmployee)
 
