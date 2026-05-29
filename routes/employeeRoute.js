@@ -8,4 +8,17 @@ const { checkAdmin } = require('../middleware/checkAdmin')
 const router = express.Router();
 
 
+//employee routes
+const { addEmployee } = require('../controllers/employee/addEmployee')
+const { fetchEmployees } = require('../controllers/employee/fetchEmployees')
+const { updateEmployee } = require('../controllers/employee/updateEmployee')
+const { deleteEmployee } = require('../controllers/employee/deleteEmployee')
+const { addSalary } = require('../controllers/employee/addSalary')
+
+router.post('/addemployee', authMiddleware , checkAdmin, addEmployee)
+router.get('/fetchemployees', authMiddleware ,fetchEmployees)
+router.put('/updateemployee/:id',authMiddleware , checkAdmin,updateEmployee)
+router.delete('/deleteemployee/:id',authMiddleware , checkAdmin, deleteEmployee)
+router.post('/addsalary', authMiddleware , checkAdmin, addSalary)
+
 module.exports = router;
