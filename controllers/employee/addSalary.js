@@ -1,4 +1,4 @@
-const { salary } = require('../../models/salarySchema');
+const { Salary } = require('../../models/salarySchema');
 const { User } = require('../../models/userSchema');
 
 async function addSalary(req, res) {
@@ -21,7 +21,7 @@ async function addSalary(req, res) {
 
         const netSalary = baseSalary + (allowances || 0) - (deductions || 0);
         
-        const newSalary = new salary({
+        const newSalary = new Salary({
             employeeId,
             baseSalary,
             allowances,
