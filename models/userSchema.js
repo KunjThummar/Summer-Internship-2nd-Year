@@ -1,5 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
+// User schema for authentication and roles
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -30,8 +31,7 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
-})
+});
 
 const User = mongoose.model('User', userSchema);
-
-module.exports = { User } ;
+module.exports = { User };

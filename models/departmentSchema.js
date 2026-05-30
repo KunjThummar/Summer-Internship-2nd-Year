@@ -1,9 +1,14 @@
+
+
+
 const mongoose = require('mongoose');
 
+// Department schema
 const departmentSchema = new mongoose.Schema({
     dep_name: {
         type: String,
         required: true,
+        unique: true
     },
     description: {
         type: String,
@@ -19,5 +24,4 @@ const departmentSchema = new mongoose.Schema({
 });
 
 const Department = mongoose.model('Department', departmentSchema);
-
 module.exports = { Department };
