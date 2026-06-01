@@ -41,6 +41,6 @@ router.get('/fetchleave/:employeeId', authMiddleware, fetchLeave);
 // Leave count routes
 router.get('/fetchapprovedleavescount', authMiddleware, fetchApprovedLeaveCount);
 router.get('/fetchpendingleavescount', authMiddleware, fetchPendingLeaveCount);
-router.get('/fetchrejectedleavescount/:id', authMiddleware, fetchRejectedLeaveCount);
+router.get('/fetchrejectedleavescount', authMiddleware, fetchRejectedLeaveCount);
 
 module.exports = router;
