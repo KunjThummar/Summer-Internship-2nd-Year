@@ -22,7 +22,7 @@ const { fetchApprovedLeaveCount } = require('../controllers/dashboard/fetchAppro
 const { fetchPendingLeaveCount } = require('../controllers/dashboard/fetchPendingLeaveCount');
 const { fetchRejectedLeaveCount } = require('../controllers/dashboard/fetchRejectedLeaveCount');
 
-
+//employee routes
 router.post('/addemployee', authMiddleware, checkAdmin, addEmployee);
 router.get('/fetchemployees', authMiddleware, fetchEmployees);
 router.put('/updateemployee/:id', authMiddleware, checkAdmin, updateEmployee);
