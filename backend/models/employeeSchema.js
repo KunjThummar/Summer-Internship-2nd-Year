@@ -1,47 +1,82 @@
 const mongoose = require('mongoose');
 
 const employeeSchema = new mongoose.Schema({
+    // merged user fields
     name: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        lowercase: true,
+        trim: true,
+        match: [/^\S+@\S+\.\S+$/, 'Please provide a valid email address']
     },
+    password: {
+        type: String,
+        required: true
+    },
+    role: {
+        type: String,
+        enum: ['admin', 'employee'],
+        default: 'employee'
+    },
+    isActive: {
+        type: Boolean,
+        default: true
+    },
+
+    // employee-specific fields
     department: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Department',
-        required: true
+        ref: 'Department'
     },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User', // Link to authentication user
-        required: true
+    employeeCode: {
+        type: String,
+        unique: true,
+        sparse: true,
+        trim: true
     },
-    profileImage: {
-        type: String
+    designation: {
+        type: String,
+        trim: true
     },
-    joiningDate: {
+    dateOfJoining: {
         type: Date,
         default: Date.now
     },
     contactNumber: {
-        type: String
+        type: String,
+        trim: true
     },
     address: {
-        type: String
+        type: String,
+        trim: true
     },
-    createdAt: {
-        type: Date,
-        default: Date.now
+    dateOfBirth: {
+        type: Date
     },
-    updatedAt: {
-        type: Date,
-        default: Date.now
+    gender: {
+        type: String,
+        enum: ['male', 'female', 'other']
+    },
+    status: {
+        type: String,
+        enum: ['active', 'inactive', 'terminated', 'on_leave'],
+        default: 'active'
+    },
+    profileImage: {
+        type: String,
+        trim: true
     }
+}, {
+    timestamps: true
 });
+
+employeeSchema.index({ department: 1 });
 
 const Employee = mongoose.model('Employee', employeeSchema);
 

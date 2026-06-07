@@ -1,4 +1,4 @@
-const { User } = require('../models/userSchema')
+const { Employee } = require('../models/employeeSchema')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 require('dotenv').config();
@@ -8,6 +8,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 function issueAuthToken(user) {
     return jwt.sign(
         {
+            id: user._id,
             userEmail: user.email,
             role: user.role
         },
@@ -21,7 +22,7 @@ async function login(req, res) {
     try {
         const { email, password } = req.body;
 
-        const user = await User.findOne({ email: email });
+        const user = await Employee.findOne({ email: email });
 
         if (!user) {
             return res.status(400).json({ error: "Email or password is incorrect" });

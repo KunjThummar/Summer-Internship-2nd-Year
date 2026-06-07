@@ -20,7 +20,8 @@ const leaveSchema = new mongoose.Schema({
         required: true
     },
     reason: {
-        type: String
+        type: String,
+        trim: true
     },
     status: {
         type: String,
@@ -34,7 +35,11 @@ const leaveSchema = new mongoose.Schema({
     reviewedAt: {
         type: Date
     }
+}, {
+    timestamps: true
 });
+
+leaveSchema.index({ employee: 1, status: 1 });
 
 const Leave = mongoose.model('Leave', leaveSchema);
 module.exports = { Leave };

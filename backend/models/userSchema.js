@@ -1,37 +1,8 @@
-const mongoose = require('mongoose');
-
-// User schema for authentication and roles
-const userSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    profileImage: {
-        type: String,
-    },
-    role: {
-        type: String,
-        enum: ['admin', 'employee'],
-        default: 'employee'
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    },
-    updatedAt: {
-        type: Date,
-        default: Date.now
-    }
-});
-
-const User = mongoose.model('User', userSchema);
-module.exports = { User };
+/**
+ * DEPRECATED: This file is no longer used.
+ * 
+ * User functionality has been merged into the Employee schema.
+ * All authentication and user data is now managed through the Employee model.
+ * 
+ * See: employeeSchema.js
+ */

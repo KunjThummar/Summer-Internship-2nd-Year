@@ -1,4 +1,4 @@
-const { User } = require('../models/userSchema')
+const { Employee } = require('../models/employeeSchema')
 const bcrypt = require('bcrypt')
 
 async function register(req, res) {
@@ -7,34 +7,32 @@ async function register(req, res) {
             name,
             email,
             password,
-            role,
-            profileImage
+            role
         } = req.body
         
         if (!name || !email || !password) {
             return res.status(400).json({ error: "Name, email and password are required" })
         }
 
-        const existingUser = await User.findOne({ email: email })
+        const existingUser = await Employee.findOne({ email: email })
         if (existingUser) {
             return res.status(400).json({ error: "Email already exists" })
         }
 
         const hashedPassword = await bcrypt.hash(password, 10)
 
-        const newUser = new User({
+        const newEmployee = new Employee({
             name,
             email,
             password: hashedPassword,
-            role,
-            profileImage
+            role
         })
 
-        await newUser.save()
+        await newEmployee.save()
 
         return res.status(201).json({
             msg: "Registration successful",
-            userId: newUser._id
+            userId: newEmployee._id
         })
 
     }
