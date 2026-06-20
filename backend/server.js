@@ -1,0 +1,45 @@
+const express = require('express')
+const app = express();
+const { connectToDatabase } = require('./connectToDatabase')
+const authRoute = require('./routes/authRoute')
+const employeeRoute = require('./routes/employeeRoute')
+const adminRoute = require('./routes/adminRoute')
+const attendanceRoutes = require('./routes/attendanceRoute');
+const dashboardRoute = require('./routes/dashboardRoute');
+const cors = require('cors')
+
+
+app.use(express.json());
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(
+    '/api/auth',
+    authRoute
+)
+
+app.use(
+    '/api/dashboard',
+    dashboardRoute
+)
+
+app.use(
+    '/api/admin',
+    adminRoute
+)
+
+app.use(
+    '/api/employee',
+    employeeRoute
+)
+
+app.use(
+    '/api/attendance',
+    attendanceRoutes
+)
+
+const PORT = 8000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+})
+connectToDatabase();
