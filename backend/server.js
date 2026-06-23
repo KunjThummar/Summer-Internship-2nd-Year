@@ -6,6 +6,7 @@ const employeeRoute = require('./routes/employeeRoute')
 const adminRoute = require('./routes/adminRoute')
 const attendanceRoutes = require('./routes/attendanceRoute');
 const dashboardRoute = require('./routes/dashboardRoute');
+const departmentRoute = require('./routes/departmentRoute');
 const cors = require('cors')
 
 
@@ -36,6 +37,11 @@ app.use(
 app.use(
     '/api/attendance',
     attendanceRoutes
+)
+
+app.use(
+    '/api/department',
+    departmentRoute
 )
 
 const PORT = process.env.PORT || 8000;
