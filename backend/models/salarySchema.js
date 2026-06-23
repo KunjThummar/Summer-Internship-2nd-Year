@@ -43,8 +43,8 @@ const salarySchema = new mongoose.Schema({
 
 salarySchema.index({ employee: 1, payDate: -1 });
 
-salarySchema.pre('save', function (next) {
-   this.netSalary = this.baseSalary + this.allowances - this.deductions;
+salarySchema.pre('validate', function (next) {
+   this.netSalary = this.baseSalary + (this.allowances || 0) - (this.deductions || 0);
    next();
 });
 
