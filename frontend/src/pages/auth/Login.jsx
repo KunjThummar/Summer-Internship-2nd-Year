@@ -79,9 +79,7 @@ const Login = () => {
           Login
         </Button>
       </form>
-      <div className="auth-footer">
-        Don't have an account? <Link to="/register">Register Admin</Link>
-      </div>
+
     </div>
   );
 };

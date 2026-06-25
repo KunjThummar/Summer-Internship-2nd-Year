@@ -21,7 +21,7 @@ import RoleRoute from './components/RoleRoute';
 
 // Pages - Auth
 import Login from './pages/auth/Login';
-import Register from './pages/auth/Register';
+
 
 // Pages - Admin
 import AdminDashboard from './pages/admin/Dashboard';
@@ -61,7 +61,7 @@ function App() {
                       {/* Public Auth Routes */}
                       <Route element={<AuthLayout />}>
                         <Route path="/login" element={<Login />} />
-                        <Route path="/register" element={<Register />} />
+
                       </Route>
 
                       {/* Protected Routes */}
